@@ -1,7 +1,21 @@
 import { styled } from "@/styles/stitches.config";
+import { Slot } from "@radix-ui/react-slot";
+import { PropsWithChildren } from "react";
 
-// common styles
-const BaseButton = styled("button", {
+type Props = {
+  asChild?: boolean;
+};
+
+const ButtonImpl = ({
+  asChild,
+  children,
+  ...rest
+}: PropsWithChildren<Props>) => {
+  const Compo = asChild ? Slot : "button";
+  return <Compo {...rest}>{children}</Compo>;
+};
+
+const Common = styled(ButtonImpl, {
   display: "flex",
   ai: "center",
   jc: "center",
@@ -64,7 +78,7 @@ const BaseButton = styled("button", {
 });
 
 // primary button style
-export const Primary = styled(BaseButton, {
+export const Primary = styled(Common, {
   bc: "$blue500",
   color: "white",
 
@@ -82,7 +96,7 @@ export const Primary = styled(BaseButton, {
 });
 
 // secondary button style
-export const Secondary = styled(BaseButton, {
+export const Secondary = styled(Common, {
   bc: "$blue200",
   color: "$blue500",
 
@@ -96,7 +110,7 @@ export const Secondary = styled(BaseButton, {
 });
 
 // reject button style
-export const Reject = styled(BaseButton, {
+export const Reject = styled(Common, {
   bc: "$gary06",
   color: "white",
 
@@ -114,3 +128,6 @@ export const Reject = styled(BaseButton, {
 export const Unset = styled("button", {
   all: "unset",
 });
+
+const BuottnVariants = Object.assign({}, { Primary, Secondary, Reject, Unset });
+export default BuottnVariants;

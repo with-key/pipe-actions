@@ -7,17 +7,15 @@ type ImplType = ComponentPropsWithoutRef<"button"> & {
 
 type RefType = ElementRef<"button">;
 
-const ButtonImpl = React.forwardRef<RefType, ImplType>(
+const ButtonCore = React.forwardRef<RefType, ImplType>(
   ({ children, asChild, ...restProps }, ref) => {
-    const Compo = asChild ? Slot : "button";
-
     return (
-      <Compo ref={ref} {...restProps}>
+      <button ref={ref} {...restProps}>
         {children}
-      </Compo>
+      </button>
     );
   }
 );
 
-ButtonImpl.displayName = "BaseButtonImple";
-export default ButtonImpl;
+ButtonCore.displayName = "BaseButtonImple";
+export default ButtonCore;

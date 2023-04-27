@@ -1,27 +1,33 @@
-import { styled } from "@/styles/stitches.config";
-import { useRouter } from "next/router";
+import ButtonCore from "@/components/button";
+import BuottnVariants from "@/components/button/styles";
+
+import Text from "@/components/text";
+import TextVariants from "@/components/text/styles";
+
 import React from "react";
 
 const Home = () => {
-  const router = useRouter();
-
   return (
-    <Container>
-      <Category onClick={() => router.push("/button")}>button {">"} </Category>
-      <Category onClick={() => router.push("/input")}>input {">"}</Category>
-    </Container>
+    <>
+      <TextVariants.Primary asChild shape="large">
+        <Text.Price>3000</Text.Price>
+      </TextVariants.Primary>
+
+      <TextVariants.Primary asChild shape="large">
+        <Text.Plain>안녕</Text.Plain>
+      </TextVariants.Primary>
+
+      <BuottnVariants.Primary asChild shape="middle">
+        <ButtonCore
+          onClick={() => {
+            console.log("hello button");
+          }}
+        >
+          버튼
+        </ButtonCore>
+      </BuottnVariants.Primary>
+    </>
   );
 };
 
 export default Home;
-
-const Container = styled("div", {
-  padding: 30,
-});
-
-const Category = styled("div", {
-  cursor: "pointer",
-  rmy: 20,
-  fontSize: 20,
-  textDecoration: "underline",
-});
