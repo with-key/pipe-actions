@@ -6,7 +6,21 @@
 - runs-on: 어던 환경에서 실행시킬 것인가를 결정 (e.g. `ubuntu-latest`..)
 - steps
 
-
+# event
 ## pull_request
 - pr은 처음에 만들어질때, 그리고 새로운 커밋(푸시)이 있을 때 트리거되어 실행된다.
-- pr이 오픈될때만 실행시키고 싶으면 세밀하게 설정이 필요하다. (`pull_request: types: [opened]`)
+- pr이 오픈될때만 실행시키고 싶으면 세밀하게 설정이 필요하다. (`pull_request: types: [opened]`), 이걸 액티비티 타입이라고 한다. 모든 on:에 액티비티 타입이 있는건 아니다.
+  
+## issue
+
+## push
+
+## schedule
+
+## workflow-dispatch
+- 수동으로 트리거할 수 있는 이벤트
+- 인풋 값을 넣을 수 있다. (string, number, boolean, choice)
+
+
+# keyword
+## if
