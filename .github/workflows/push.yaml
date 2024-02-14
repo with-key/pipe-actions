@@ -12,3 +12,11 @@ jobs: #실행시킬 잡들의 집함 필수
         echo hello world!
         echo github action!
     
+  push-job-2:
+    runs-on: ubuntu-latest
+    steps:
+    - name: step1 # 생략해도 되나, 보이기 때문에 작성하는게 좋음 
+      run: echo 안녕!
+     
+  
+    
